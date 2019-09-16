@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script type="text/javascript" src="third-party/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="Utils.js" ></script>
+        <script type="text/javascript" src="classes.js"></script>
+        <script type="text/javascript" src="joke.js"></script>
+        <script type="text/javascript" src="maps.js"></script>
+        <script type="text/javascript" src="images.js"></script>	
+        <script type="text/javascript" src="threads.js"></script>		
+        <script type="text/javascript" src="user.js"></script>           
+        <script type="text/javascript" src="Geometry.js"></script>          
+        <script type="text/javascript" src="third-party/sylvester/sylvester.src.js"></script>
+        <script type="text/javascript" src="fizika.js"></script>  
+        <link rel="stylesheet" type="text/css" href="main.css"/>
+        <script>
+            var root;
+            document.addEventListener("DOMContentLoaded", function(event) {
+                var container = document.getElementById('wrapper');
+                document.getElementById('btnStart').addEventListener('click', function(event) {
+                    var container = document.getElementById('wrapper');
+                    root = new Root(container);
+                    Interface.init(root);
+                    event.target.style.display  = 'none';
+                });
+                
+                document.getElementById('btnEnd').addEventListener('click', function(event){
+                    clearInterval(main_timer);
+                });
+                
+                document.getElementById('btnHistory').addEventListener('click', function(event) {
+                    document.getElementById('history').innerHTML = "";
+                });
+            });
+        </script>
+    </head>
+    <body>
+        
+        <p>Pixelvania</p>
+        <div id ="wrapall"> 
+        <div id="wrapper" style="width:1150px; height:745px; float:left; background-image: url('resources/layout/layout1.png')"></div>        
+        <div style='float:left'>
+        <button id="btnStart">Start</button>
+        <button id="btnEnd">End</button>
+        <button id="btnHistory">Clear history</button>
+        <div id="isJumping"     class="indicator"> is Jumping</div>
+        <div id="isSuspended"   class="indicator" >is Suspended</div>
+        <div id="isIngame"      class="indicator"> is Ingame </div>
+        <div id="isCollided"    class="indicator"> is Collided</div>
+        <div id="isStaying"    class="indicator"> is Staying</div>
+        <div id="marioDx"    class="indicator">0</div>
+        <div id="marioDy"    class="indicator">0</div>
+        </div>
+        </div>
+        <span id="info"> </span>        
+        <div id="wrapper-history">
+            <ul id="history"></ul>
+        </div>
+        
+    </body>
+</html>
