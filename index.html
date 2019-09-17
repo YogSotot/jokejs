@@ -18,10 +18,11 @@
             var root;
             document.addEventListener("DOMContentLoaded", function(event) {
                 var container = document.getElementById('wrapper');
+                root = new Root(container);
+                Interface.preInit(root);
                 document.getElementById('btnStart').addEventListener('click', function(event) {
-                    var container = document.getElementById('wrapper');
-                    root = new Root(container);
-                    Interface.init(root);
+                    var container = document.getElementById('wrapper');                    
+                    Interface.start();
                     event.target.style.display  = 'none';
                 });
                 
@@ -39,7 +40,9 @@
         
         <p>Pixelvania</p>
         <div id ="wrapall"> 
-        <div id="wrapper" style="width:1150px; height:745px; float:left; background-image: url('resources/layout/layout1.png')"></div>        
+         
+            <!-- background-image: url('resources/layout/layout1.png');  -->
+        <div id="wrapper" style="width:1150px; height:745px; float:left;"></div>        
         <div style='float:left'>
         <button id="btnStart">Start</button>
         <button id="btnEnd">End</button>
@@ -57,6 +60,5 @@
         <div id="wrapper-history">
             <ul id="history"></ul>
         </div>
-        
     </body>
 </html>

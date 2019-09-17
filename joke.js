@@ -202,24 +202,23 @@ var Scene = function (RootObj) {
     mappable.setOwner(this);
     /*this.width = this.rootObj.wrapper.clientWidth;
     this.height = this.rootObj.wrapper.clientHeight;*/
-    
+  //  debugger;
     this.scrollX = 0;
     this.scrollY = 0;
     this.canvas = document.createElement('canvas');
-    this.layout = new image();
-    this.layout.loadFromFile('resources/layout/layout1.png');
 
     this.canvas.setAttribute('width', this.rootObj.wrapper.clientWidth + 'px');
     this.canvas.setAttribute('height', this.rootObj.wrapper.clientHeight + 'px');
     this.canvas.setAttribute('style', 'position: absolute; left:' + this.rootObj.wrapper.offsetLeft + '; top:' + this.rootObj.wrapper.offsetTop + '; z-index:' + this.rootObj.wrapper.children.length + ';');
     this.rootObj.wrapper.appendChild(this.canvas);
+    
     var beh = new setImageBehavior();
     beh.setOwner(this);
     
-    this.loadSprites('resources/sprites.png');
+   /* this.loadSprites('resources/sprites.png');
     this.loadSprites('resources/layout/winter_ground/ground2.png');
     this.loadSprites('resources/layout/winter_ground/ground3.png');
-    this.loadSprites('resources/layout/accessories/ladder.png');
+    this.loadSprites('resources/layout/accessories/ladder.png');*/
 
 };
 Scene.prototype = {
@@ -230,7 +229,7 @@ Scene.prototype = {
         
     },
     onInit: function()
-    {
+    {        
         this.loadMap('level1.xml');
         this.onAfterLoadMap();
     },    
@@ -250,6 +249,7 @@ Scene.prototype = {
         var ctx = this.canvas.getContext('2d');
         ctx.globalCompositeOperation = 'source-over';
         ctx.drawImage(this.layout.image, 0, 0);
+       
     },
     /**
      * Internal method
@@ -379,8 +379,7 @@ Scene.prototype = {
         obj.ctx.restore();
     },
     drawObject: function (obj) {
-        //obj.ctx.save
-        debugger;
+        //obj.ctx.save        
         if (!obj.image) {
             obj.ctx.fillStyle = "rgb(" + obj.color + ")";
             obj.ctx.fillRect(0, 0, obj.width, obj.height);
@@ -556,14 +555,16 @@ circularMovingSceneObject.prototype.collision = function (collResult, context, c
  */
 Interface = {
     scene: null,
-    init: function (root) {
+    preInit : function (root)
+    {
         this.scene = new Scene(root);
-  
-        this.scene.drawLayout();
+        debugger;
         this.scene.onInit();
+    },
+    start: function (root) {
+        this.scene.drawLayout();
         this.doStartNew();
         //this.onInit();
-
     },
     onInit: function () {
         var o1 = new sceneObject(160, 170, 80, 20);

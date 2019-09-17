@@ -6,20 +6,23 @@ image = function() {
 };
 
 image.prototype = {
-    "image": null,
+    "_image": null,
     "url": "",
     "spriteWidth": 0,
     "spriteHeight": 0,
     "name": 0,
     'loadFromFile': function(url) {
         this.url = url;
-        this.image = new Image();
+        this._image = new Image();
         var self = this;
-        this.image.onload = function(){
+        this._image.onload = function(){
             self.spriteWidth = this.width;
             self.spriteHeight =  this.height;        
         };
-        this.image.src = url;           
+        this._image.src = url;           
+    },
+    get image() {
+        return this._image;
     }
 };
 imageList = function() {
