@@ -42,29 +42,29 @@ Maps.prototype = {
                     object_movement_obj  = object_node.getElementsByTagName('movement');
                     //debugger;
                     this.loadSprites(object_sprite, object_name);
-                    
+                    var o  = new spriteObject(object_x, object_y, object_width, object_height);
+                        o.name   = object_name;
+                        o.color = object_color;
                                         
                     switch (object_type){
-                    case 'user':
-                            var o    = new spriteObject(object_x, object_y, object_width, object_height);
-                            o.name   = object_name;
-                            debugger;
-                         
-                            o.color = object_color;
-                            o.onTick = function (sender, param, scene) {
-                                sender.setSprite(0, 0, sender.counter);
-                                scene.clearOld(sender);
-                                scene.move(sender);
-                                scene.drawObject(sender);
-                            };                            
-                            this.putObj(o);
-                            o.setSprite(o.name, 0, 0)
+                    case 'user':                            
+                        o.onTick = function (sender, param, scene) {
+                            sender.setSprite(sender.name, 0, sender.counter);
+                            scene.clearOld(sender);
+                            scene.move(sender);
+                            scene.drawObject(sender);
+                        };                                                       
                         break;
                     case "default":
-                        this.putObj(o);
                         break;
                     }
+                    this.putObj(o);
+                    if (object_sprite)
+                    {
+                        o.setSprite(o.name, 0, 0);
+                    }
                 }
+                
 
             }
             catch (e)

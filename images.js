@@ -114,7 +114,8 @@ Sprite.prototype.drawSprite = function() {
         this.context.globalCompositeOperation = this.rasterOperation;
     }
     try {
-        if (this.image){
+        //TODO draw if and only if the sprite fits scene's viewport
+        if (this.image ){
            
             if (this.type === 'SPRITE'){
                 this.context.drawImage(

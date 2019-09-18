@@ -625,7 +625,11 @@ Interface = {
         var objMario = Interface.scene.getObjByName('mario');
       //  var gravity = new Force("gravity", Vector.create([0, 0.2, 0]));
      //   objMario.addForce(gravity);
-        Interface.scene.drawObject(objMario);
+        this.scene.objects.forEach(function(e){
+            console.log('Drawing '+e.name);
+            Interface.scene.drawObject(e);
+        });
+        
     },
     doStart: function () {
         

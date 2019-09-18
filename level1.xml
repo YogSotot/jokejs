@@ -3,6 +3,19 @@
    <width>2000</width>
    <height>800</height>
    <layout>resources/layout/layout1.png</layout>
+   <!-- набор фонов -->
+   <tiles>
+       <tile name="ground2">resources/ground2.png</tile>
+       <tile name="ground3">resources/ground3.png</tile>
+       <tile name="ground4">resources/ground4.png</tile>
+       <tile name="groundl">resources/groundl.png</tile>
+       <tile name="groundr">resources/groundl.png</tile>
+   </tiles>
+   <!-- скомпонованные в наборы фоны-->
+   <tileset>
+       <tileset name="ground_tileset1">groundl,[ground3],groundr</tileset>
+       <tileset name="ground_tileset2">groundl,[ground2],groundr</tileset>
+   </tileset>
    <objects>
       <object>
          <!--Имя, может присутствовать, может отсутствовать-->
@@ -73,7 +86,7 @@
          <height>50</height>
          <x>0</x>
          <y>750</y>
-         <sprite>resources/block1.png</sprite>
+         <tile>ground1</tile>
       </object>
       <object>
          <name>wall1</name>
