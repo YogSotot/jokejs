@@ -202,7 +202,7 @@ var Scene = function (RootObj) {
     mappable.setOwner(this);
     /*this.width = this.rootObj.wrapper.clientWidth;
     this.height = this.rootObj.wrapper.clientHeight;*/
-  //  debugger;
+   
     this.scrollX = 0;
     this.scrollY = 0;
     this.canvas = document.createElement('canvas');
@@ -211,7 +211,7 @@ var Scene = function (RootObj) {
     this.canvas.setAttribute('height', this.rootObj.wrapper.clientHeight + 'px');
     this.canvas.setAttribute('style', 'position: absolute; left:' + this.rootObj.wrapper.offsetLeft + '; top:' + this.rootObj.wrapper.offsetTop + '; z-index:' + this.rootObj.wrapper.children.length + ';');
     this.rootObj.wrapper.appendChild(this.canvas);
-    
+      debugger;
     var beh = new setImageBehavior();
     beh.setOwner(this);
     
@@ -263,10 +263,11 @@ Scene.prototype = {
         obj.ctx.clearRect(-7, -7, obj.width + 14, obj.height + 14);
         obj.ctx.restore();
     },
-    loadSprites: function (path) {
+    loadSprites: function (path, alias) {
         var spritesSheet = new image();
         spritesSheet.loadFromFile(path);
-        this.images.push(spritesSheet);
+        alias = alias || this.images.length;
+        this.images[alias] = spritesSheet;
     },
     clearFull: function (obj) {
         obj.ctx.clearRect(0, 0, 500, 500);
@@ -557,8 +558,7 @@ Interface = {
     scene: null,
     preInit : function (root)
     {
-        this.scene = new Scene(root);
-        debugger;
+        this.scene = new Scene(root);        
         this.scene.onInit();
     },
     start: function (root) {

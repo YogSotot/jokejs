@@ -14,7 +14,6 @@
          <x>50</x>
          <y>710</y>
          <color>250,40,40</color>
-         <sprite>0</sprite>
          <!-- Движение. Если отсутствует, то узел не определяется-->
          <movement>
             <rule>straight</rule>

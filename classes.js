@@ -51,8 +51,6 @@ behavior = function(targetObj, name) {
 };
 
 behavior.prototype = {
-	/*"name" : "",
-	"owner": '',*/
 "mixin": function(dest, src) {
 		var field, systemNames = ['setOwner', 'getOwner', 'apply'],
 			tempObj = {};

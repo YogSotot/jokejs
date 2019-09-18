@@ -64,13 +64,13 @@ Sprite.prototype = {
     "srcHeight": 0, //sprite height
     "destWidth" : 0,
     "destHeight" : 0,    
-    "rasterOperation": "source-over"
+    "rasterOperation": "source-over",    
 };
 
 
-Sprite.prototype.setSprite = function(imageIndex, row, col) {
+Sprite.prototype.setSprite = function(imageAlias, row, col) {
     if (this.scene && this.scene.getImage) {
-        this.image = this.scene.getImage(imageIndex);
+        this.image = this.scene.getImage(imageAlias);
     }
     this.row = row;
     this.col = col;

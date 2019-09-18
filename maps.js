@@ -38,14 +38,18 @@ Maps.prototype = {
                     object_y            = object_node.getElementsByTagName('y')[0].textContent,
                     object_color        = object_node.getElementsByTagName('color').length > 0 
                             ? object_node.getElementsByTagName('color')[0].textContent : null,
-                    object_sprite       = object_node.getElementsByTagName('sprite')[0],
+                    object_sprite       = object_node.getElementsByTagName('sprite')[0].textContent,                    
                     object_movement_obj  = object_node.getElementsByTagName('movement');
+                    //debugger;
+                    this.loadSprites(object_sprite, object_name);
+                    
                                         
                     switch (object_type){
                     case 'user':
                             var o    = new spriteObject(object_x, object_y, object_width, object_height);
                             o.name   = object_name;
-                            o.setSprite(0, 0, 0)
+                            debugger;
+                         
                             o.color = object_color;
                             o.onTick = function (sender, param, scene) {
                                 sender.setSprite(0, 0, sender.counter);
@@ -53,7 +57,8 @@ Maps.prototype = {
                                 scene.move(sender);
                                 scene.drawObject(sender);
                             };                            
-                            this.putObj(o);                        
+                            this.putObj(o);
+                            o.setSprite(o.name, 0, 0)
                         break;
                     case "default":
                         this.putObj(o);
