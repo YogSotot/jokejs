@@ -53,11 +53,18 @@ Sprite = function(image, sw, sh, rop) {
 
 Sprite.prototype = {
     "type" : 'SPRITE',
-    "repeat" : 0,
-    "colOffset": 0, //offset for  accurate positioning on sprite sheet
+    "repeat" : 0,    
+    "offsetX": 0, //X offset for accurate positioning on a sprite sheet
+    "offsetY": 0, // Y offset for accurate positioning on a sprite sheet
+    
+    "gapX" : 0, // Interim between sprite frames on X axis
+    "gapY" : 0, // Interim between sprite frames on Y axis
+    
     "image": null,
+    
     "srcX": 0, // start clipping x on spritesheet
     "srcY": 0, // start clipping y on spritesheet
+    
     "row": 0,
     "col": 0,
     "srcWidth": 0, //sprite width
@@ -81,8 +88,8 @@ Sprite.prototype.setSprite = function(imageAlias, row, col) {
     {
         console.log("Properties width and/or height are not assigned. ");
     }
-    this.srcY = this.srcHeight * row;
-    this.srcX = (this.srcWidth + 2) * col;
+    this.srcY = this.srcHeight * row; //TODO + gapX
+    this.srcX = (this.srcWidth + 2) * col; //TODO + gapY
 };
 
 

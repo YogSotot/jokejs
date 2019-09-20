@@ -3,6 +3,7 @@
    <width>2000</width>
    <height>800</height>
    <layout>resources/layout/layout1.png</layout>
+   
    <!-- набор фонов -->
    <tiles>
        <tile name="ground2">resources/ground2.png</tile>
@@ -16,6 +17,23 @@
        <tileset name="ground_tileset1">groundl,[ground3],groundr</tileset>
        <tileset name="ground_tileset2">groundl,[ground2],groundr</tileset>
    </tileset>
+   
+   <sprites>
+       <sprite name="skeleton">
+           <src>resources/enemy_sprites.png</src>
+           <!-- Смещение от начала листа спрайта по X-->
+           <offsetx>16</offsetx>
+           <!-- Смещение от начала листа спрайта по Y-->
+           <offsety>12</offsety>           
+           <width>32</width>
+           <height>52</height>
+           <!-- Зазор между спрайтами по X-->
+           <gapX>32</gapX>
+           <!-- Зазор между спрайтами по Y-->
+           <gapY>14</gapY>
+       </sprite>
+   </sprites>
+   
    <objects>
       <object>
          <!--Имя, может присутствовать, может отсутствовать-->
@@ -27,7 +45,7 @@
          <x>50</x>
          <y>710</y>
          <color>250,40,40</color>
-         <!-- Движение. Если отсутствует, то узел не определяется-->
+         <!-- Движение-->
          <movement>
             <rule>straight</rule>
             <!-- straight - прямолинейное, angular - под углом, circular - по кругу -->
@@ -48,7 +66,7 @@
          </movement>
          <!-- Может присутствовать, может отсутствовать. В зависимости от того, есть ли спрайт.-->
         <!-- Относительный путь к файлу спрайтов, например  'resources/sprites.png' -->
-         <sprite>resources/sprites.png</sprite>
+         <sprite>resources/sprites.png</sprite>         
       </object>
       <object>
          <name>Evil_enemy_1</name>
@@ -62,13 +80,13 @@
             <!-- Здесь мы задаем мобу ходить взад-вперед по отрезку длиной 150px-->
             <waypoints>[50,650],[200,650]</waypoints>
          </movement>
-         <sprite>resources/block1.png</sprite>
+         <sprite>resources/enemy_sprites.png</sprite>
       </object>
       <object>
          <name>Evil_flying_enemy_1</name>
          <type>mob</type>
-         <width>100</width>
-         <height>100</height>
+         <width>40</width>
+         <height>50</height>
          <x>100</x>
          <y>500</y>
          <movement>
@@ -77,14 +95,14 @@
             <!--летает вверх-право, вниз-право, вверх-лево, вниз-лево-->
             <waypoints>[100,500],[200,400],[300,500],[200,400]</waypoints>
          </movement>
-         <sprite>resources/block1.png</sprite>
+         <sprite>resources/enemy_sprites.png</sprite>
       </object>
       <object>
          <name>Platform1</name>
          <type>default</type>
          <width>250</width>
          <height>50</height>
-         <x>0</x>
+         <x>160</x>
          <y>750</y>
          <tile>ground1</tile>
       </object>
@@ -93,59 +111,40 @@
          <!--стена-->
          <type>default</type>
          <width>100</width>
-         <height>250</height>
+         <height>50</height>
          <x>250</x>
          <y>550</y>
-         <sprite>resources/block1.png</sprite>
-      </object>
-      <object>
-         <name>stairs1</name>
-         <!--лестница-->
-         <type>default</type>
-         <width>50</width>
-         <height>100</height>
-         <x>200</x>
-         <y>650</y>
-         <sprite>resources/block1.png</sprite>
-      </object>
+         <sprite>resources/layout/winter_ground/ice.png</sprite>
+      </object>                     
       <object>
          <name>Platform2</name>
          <type>default</type>
          <width>200</width>
          <height>50</height>
-         <x>0</x>
+         <x>300</x>
          <y>650</y>
-        <sprite>resources/block1.png</sprite>
-      </object>
-      <object>
-         <name>stairs2</name>
-         <!--лестница-->
-         <type>default</type>
-         <width>50</width>
-         <height>100</height>
-         <x>0</x>
-         <y>550</y>
-        <sprite>resources/block1.png</sprite>
-      </object>
+        <sprite>resources/layout/winter_ground/ground2.png</sprite>
+      </object>      
       <object>
          <name>Platform3</name>
          <type>default</type>
          <width>200</width>
          <height>50</height>
-         <x>50</x>
+         <x>350</x>
          <y>550</y>
-        <sprite>resources/block1.png</sprite>
+        <sprite>resources/layout/winter_ground/ground2.png</sprite>
       </object>
+      <!--
       <object>
          <name>pit1</name>
-         <!--яма-->
+         
          <type>default</type>
          <width>300</width>
          <height>50</height>
          <x>350</x>
          <y>750</y>
          <sprite>resources/block1.png</sprite>
-      </object>
+      </object> -->
       <object>
          <name>moving_platform1</name>
          <!--движущаяся платформа-->
@@ -158,7 +157,7 @@
             <dx>1</dx>
             <waypoints>[350,730],[600,730]</waypoints>
          </movement>
-         <sprite>resources/block1.png</sprite>
+         <sprite>resources/layout/winter_ground/groundice2.png</sprite>
       </object>
    </objects>
 </map>

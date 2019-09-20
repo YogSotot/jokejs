@@ -622,7 +622,8 @@ Interface = {
     },
     doStartNew : function (){
         
-        var objMario = Interface.scene.getObjByName('mario');
+        var objMario = Interface.scene.getObjByName('Mario');
+        var objBlock = Interface.scene.getObjByName('Platform1');
       //  var gravity = new Force("gravity", Vector.create([0, 0.2, 0]));
      //   objMario.addForce(gravity);
         this.scene.objects.forEach(function(e){
