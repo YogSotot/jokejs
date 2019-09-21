@@ -631,6 +631,39 @@ Interface = {
             Interface.scene.drawObject(e);
         });
         
+          document.addEventListener('keydown', function (event) {
+            objMario.isIngame = true;
+            var key = event.which;
+            switch (key) {
+                case 37:
+                    key = 'KEY_LEFT';
+                    objMario.moveLeft();
+                    objMario.start();
+                    break;
+                case 38:
+                    key = 'KEY_UP';
+                    objMario.moveUp();
+                    objMario.start();
+                    break;
+                case 39:
+                    key = 'KEY_RIGHT';
+                    objMario.moveRight();
+                    objMario.start();
+                    break;
+                case 40:
+                    key = 'KEY_DOWN';
+                    objMario.moveDown();
+                    objMario.start();
+                    break;
+                case 32:
+                    key = 'KEY_JUMP';
+                    objMario.moveJump();
+                    objMario.start();
+                    break;
+                default:
+                    console.log('Unknown key: ' + key);
+            }
+        });
     },
     doStart: function () {
         

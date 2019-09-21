@@ -61,9 +61,8 @@ spriteObject.prototype.moveLeft = function () {
     this.movementParam.dy = 0;
     this.movementParam.dx = -2;
     this.suspended = false;
-    this.onTick = function (sender, param) {
-
-        sender.setSprite(0, 3, sender.counter);
+    this.onTick = function (sender, param) {       
+        sender.setSprite(sender.name, 3, sender.counter);
         this.scene.clearOld(sender);
         this.scene.move(sender);
         this.scene.drawObject(sender);
@@ -78,9 +77,10 @@ spriteObject.prototype.moveRight = function () {
     this.movementParam.dx = 2;
     this.suspended = false;
     this.onTick = function (sender, param) {
-        sender.setSprite(0, 0, sender.counter);
-        if (sender.counter == 0) {
-            sender.setSprite(0, 0, 2);
+        debugger;
+        sender.setSprite(sender.name, 0, sender.counter);
+        if (sender.counter === 0) {
+            sender.setSprite(sender.name, 0, 2);
         }
         this.scene.clearOld(sender);
         this.scene.move(sender);
@@ -94,7 +94,7 @@ spriteObject.prototype.moveUp = function () {
     this.movementParam.dy = -2;
     this.suspended = false;
     this.onTick = function (sender, param) {
-        sender.setSprite(0, 2, sender.counter);
+        sender.setSprite(sender.name, 2, sender.counter);
         this.scene.clearOld(sender);
         this.scene.move(sender);
         this.scene.drawObject(sender);
@@ -108,7 +108,7 @@ spriteObject.prototype.moveDown = function () {
     this.movementParam.dy = 2;
     this.suspended = false;
     this.onTick = function (sender, param) {
-        sender.setSprite(0, 1, sender.counter);
+        sender.setSprite(sender.name, 1, sender.counter);
         this.scene.clearOld(sender);
         this.scene.move(sender);
         this.scene.drawObject(sender);

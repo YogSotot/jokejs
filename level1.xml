@@ -32,6 +32,20 @@
            <!-- Зазор между спрайтами по Y-->
            <gapY>14</gapY>
        </sprite>
+       
+       <sprite name="mario">
+           <src>resources/sprites.png</src>
+           <!-- Смещение от начала листа спрайта по X-->
+           <offsetx>0</offsetx>
+           <!-- Смещение от начала листа спрайта по Y-->
+           <offsety>0</offsety>           
+           <width>30</width>
+           <height>40</height>
+           <!-- Зазор между спрайтами по X-->
+           <gapX>2</gapX>
+           <!-- Зазор между спрайтами по Y-->
+           <gapY>0</gapY>
+       </sprite>
    </sprites>
    
    <objects>
@@ -80,7 +94,7 @@
             <!-- Здесь мы задаем мобу ходить взад-вперед по отрезку длиной 150px-->
             <waypoints>[50,650],[200,650]</waypoints>
          </movement>
-         <sprite>resources/enemy_sprites.png</sprite>
+         <spriteSheet>skeleton</spriteSheet>
       </object>
       <object>
          <name>Evil_flying_enemy_1</name>

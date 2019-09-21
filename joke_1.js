@@ -198,26 +198,27 @@ sceneObject.prototype = {
  *
  */
 var Scene = function (RootObj) {
+    debugger;
     this.rootObj = RootObj;
-    this.width = this.rootObj.wrapper.clientWidth;
-    this.height = this.rootObj.wrapper.clientHeight;
+   // this.width = this.rootObj.wrapper.clientWidth;
+    //this.height = this.rootObj.wrapper.clientHeight;
 
     this.scrollX = 0;
     this.scrollY = 0;
     this.canvas = document.createElement('canvas');
-    this.layout = new image();
-    this.layout.loadFromFile('resources/layout/layout1.png');
-
+    // this.layout = new image();
+    //this.layout.loadFromFile('resources/layout/layout1.png');
+    
     this.canvas.setAttribute('width', this.rootObj.wrapper.clientWidth + 'px');
     this.canvas.setAttribute('height', this.rootObj.wrapper.clientHeight + 'px');
     this.canvas.setAttribute('style', 'position: absolute; left:' + this.rootObj.wrapper.offsetLeft + '; top:' + this.rootObj.wrapper.offsetTop + '; z-index:' + this.rootObj.wrapper.children.length + ';');
     this.rootObj.wrapper.appendChild(this.canvas);
     var beh = new setImageBehavior();
     beh.setOwner(this);
-    this.loadSprites('resources/sprites.png');
-    this.loadSprites('resources/layout/winter_ground/ground2.png');
-    this.loadSprites('resources/layout/winter_ground/ground3.png');
-    this.loadSprites('resources/layout/accessories/ladder.png');
+   // this.loadSprites('resources/sprites.png');
+   // this.loadSprites('resources/layout/winter_ground/ground2.png');
+   // this.loadSprites('resources/layout/winter_ground/ground3.png');
+   // this.loadSprites('resources/layout/accessories/ladder.png');
 
 };
 Scene.prototype = {
@@ -237,19 +238,7 @@ Scene.prototype = {
         var ctx = this.canvas.getContext('2d');
         ctx.globalCompositeOperation = 'source-over';
         ctx.drawImage(this.layout.image, 0, 0);
-    },
-    loadMap : function(path)
-    {
-        var xhr = new XMLHttpRequest();
-        request.open('GET', 'http://localhost:8383/JokeJs/'+ path, false);  // `false` makes the request synchronous
-        request.send(null);
-        if (request.status === 200) {
-            this.map = request.responseText;
-            parser = new DOMParser();
-            xmlDoc = parser.parseFromString(this.map, "text/xml");
-            this.onInit();
-        }
-    },
+    },   
     /**
      * Internal method
      * Delete old visual content

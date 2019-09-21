@@ -16,6 +16,7 @@ Maps.prototype = {
         var xhr = new XMLHttpRequest(), xml, xpr, node;
         xhr.open('GET', url, false);
         xhr.send(null);
+        var self = this;
         if (xhr.status === 200) {
             xml = xhr.responseXML;
             try {
@@ -70,9 +71,9 @@ Maps.prototype = {
                     case 'user':                            
                         o.onTick = function (sender, param, scene) {
                             sender.setSprite(sender.name, 0, sender.counter);
-                            scene.clearOld(sender);
-                            scene.move(sender);
-                            scene.drawObject(sender);
+                            self.clearOld(sender);
+                            self.move(sender);
+                            self.drawObject(sender);
                         };                                                       
                         break;
                     case "default":
