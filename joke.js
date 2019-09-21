@@ -211,7 +211,6 @@ var Scene = function (RootObj) {
     this.canvas.setAttribute('height', this.rootObj.wrapper.clientHeight + 'px');
     this.canvas.setAttribute('style', 'position: absolute; left:' + this.rootObj.wrapper.offsetLeft + '; top:' + this.rootObj.wrapper.offsetTop + '; z-index:' + this.rootObj.wrapper.children.length + ';');
     this.rootObj.wrapper.appendChild(this.canvas);
-      debugger;
     var beh = new setImageBehavior();
     beh.setOwner(this);
     
