@@ -88,8 +88,10 @@ Sprite.prototype.setSprite = function(imageAlias, row, col) {
     {
         console.log("Properties width and/or height are not assigned. ");
     }    
-    this.srcY = this.srcHeight * row; //TODO + gapY
-    this.srcX = (this.srcWidth) * col; //TODO + gapX
+    
+    this.srcY = (this.srcHeight + this.gapY) * row   + this.offsetY;
+    this.srcX = (this.srcWidth + this.gapX) * col; //TODO + gapX
+    console.log(this.srcY);
 };
 
 

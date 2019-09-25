@@ -234,7 +234,7 @@ spriteObject.prototype.moveJump = function () {
     }
 
     this.suspended = false;
-
+    console.log("here");
     this.movementParam.externalDx = null;
     this.movementParam.externalDy = null;
     var obj = Interface.scene.getObj(0);

@@ -18,8 +18,8 @@
        <tileset name="ground_tileset2">groundl,[ground2],groundr</tileset>
    </tileset>
    
-   <sprites>
-       <sprite name="skeleton">
+   <spritesheets>
+       <sheet name="skeleton">
            <src>resources/enemy_sprites.png</src>
            <!-- Смещение от начала листа спрайта по X-->
            <offsetx>16</offsetx>
@@ -28,25 +28,25 @@
            <width>32</width>
            <height>52</height>
            <!-- Зазор между спрайтами по X-->
-           <gapX>32</gapX>
+           <gapx>32</gapx>
            <!-- Зазор между спрайтами по Y-->
-           <gapY>14</gapY>
-       </sprite>
+           <gapy>14</gapy>
+       </sheet>
        
-       <sprite name="mario">
+       <sheet name="mario">
            <src>resources/sprites.png</src>
            <!-- Смещение от начала листа спрайта по X-->
            <offsetx>0</offsetx>
            <!-- Смещение от начала листа спрайта по Y-->
-           <offsety>0</offsety>           
+           <offsety>6</offsety>           
            <width>30</width>
-           <height>40</height>
+           <height>34</height>
            <!-- Зазор между спрайтами по X-->
-           <gapX>2</gapX>
+           <gapx>0</gapx>
            <!-- Зазор между спрайтами по Y-->
-           <gapY>0</gapY>
-       </sprite>
-   </sprites>
+           <gapy>6</gapy>
+       </sheet>
+   </spritesheets>
    
    <objects>
       <object>
@@ -55,9 +55,9 @@
          <type>user</type>
          <!--Тип может быть user (только 1 на всю карту), или  mob (если моб), или default  (платформа или еще что-то)-->
          <width>30</width>
-         <height>40</height>
-         <x>50</x>
-         <y>710</y>
+         <height>34</height>
+         <x>450</x>
+         <y>410</y>
          <color>250,40,40</color>
          <!-- Движение-->
          <movement>
@@ -80,7 +80,8 @@
          </movement>
          <!-- Может присутствовать, может отсутствовать. В зависимости от того, есть ли спрайт.-->
         <!-- Относительный путь к файлу спрайтов, например  'resources/sprites.png' -->
-         <sprite>resources/sprites.png</sprite>         
+         <!-- <sprite>resources/sprites.png</sprite>          -->
+         <spriteSheet>mario</spriteSheet>
       </object>
       <object>
          <name>Evil_enemy_1</name>

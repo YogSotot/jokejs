@@ -623,8 +623,8 @@ Interface = {
         
         var objMario = Interface.scene.getObjByName('Mario');
         var objBlock = Interface.scene.getObjByName('Platform1');
-      //  var gravity = new Force("gravity", Vector.create([0, 0.2, 0]));
-     //   objMario.addForce(gravity);
+        var gravity = new Force("gravity", Vector.create([0, 0.2, 0]));
+        objMario.addForce(gravity);
         this.scene.objects.forEach(function(e){
             console.log('Drawing '+e.name);
             Interface.scene.drawObject(e);
@@ -656,12 +656,21 @@ Interface = {
                     break;
                 case 32:
                     key = 'KEY_JUMP';
+                    objMario.isStaying = true;
                     objMario.moveJump();
                     objMario.start();
                     break;
                 default:
                     console.log('Unknown key: ' + key);
             }
+        });
+        
+        main_timer = setInterval(
+        function () {
+            if (!objMario.isJumping && objMario.isIngame) {
+               objMario.applyForces();
+               Interface.scene.moveObject(objMario, false);
+           }
         });
     },
     doStart: function () {
