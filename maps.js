@@ -49,12 +49,12 @@ Maps.prototype = {
 //                    console.log(object_node);
                     var 
                     object_type     = object_node.getElementsByTagName('type')[0].textContent,
-                    object_name         = object_node.getElementsByTagName('name')[0].textContent,
-                    object_width        = object_node.getElementsByTagName('width')[0].textContent,
-                    object_height       = object_node.getElementsByTagName('width')[0].textContent,
-                    object_x            = object_node.getElementsByTagName('x')[0].textContent,
-                    object_y            = object_node.getElementsByTagName('y')[0].textContent,
-                    object_color        = object_node.getElementsByTagName('color').length > 0 
+                    object_name     = object_node.getElementsByTagName('name')[0].textContent,
+                    object_width    = parseInt(object_node.getElementsByTagName('width')[0].textContent),
+                    object_height   = parseInt(object_node.getElementsByTagName('width')[0].textContent),
+                    object_x        = parseInt(object_node.getElementsByTagName('x')[0].textContent),
+                    object_y        = parseInt(object_node.getElementsByTagName('y')[0].textContent),
+                    object_color    = object_node.getElementsByTagName('color').length > 0 
                         ? object_node.getElementsByTagName('color')[0].textContent : null,
                     object_sprite       = object_node.getElementsByTagName('sprite').length > 0  
                         ? object_node.getElementsByTagName('sprite')[0].textContent : null,
